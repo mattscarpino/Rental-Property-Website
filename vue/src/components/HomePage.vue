@@ -1,11 +1,10 @@
 <template>
   <div>
     <h1 id="address">Property</h1>
-    <h4 id="location">Hilton Head Island, South Carolina</h4>
+    <h4 id="location">Hilton Head Island, SC</h4>
     <div id="gallery">
-      <div id="pics">
-        <img id="main-photo" src="../../assets/HHlivingroom.png" />
-      </div>
+      <img id="main-photo" src="../../assets/HHlivingroom.png" />
+
       <div id="square">
         <img
           id="living-room"
@@ -68,9 +67,9 @@
         <em>{{ price.season }}</em>
       </p>
       <p v-if="num == 1" class="dates"><em>December 1 - February 28</em></p>
-      <p v-if="num == 2" class="dates"><em>March 1 - May 31</em></p>
-      <p v-if="num == 3" class="dates"><em>June 1 - August 31</em></p>
-      <p v-if="num == 4" class="dates"><em>September 1 - November 30</em></p>
+      <p v-if="num == 2" class="dates"><em>March 1 - Memorial Day</em></p>
+      <p v-if="num == 3" class="dates"><em>Memorial Day - Labor Day</em></p>
+      <p v-if="num == 4" class="dates"><em>Labor Day - November 30</em></p>
 
       <p class="cost">
         <b>${{ price.daily }}</b
@@ -81,12 +80,14 @@
         <b>${{ price.weekly }}</b
         ><em> / week</em>
       </p>
-      <p class="cost">
-        <b>${{ price.twoweeks }}</b
-        ><em> / month</em>
-      </p>
 
-      <p class="cost"><em>+ Cleaning Fee: </em><b> $150</b></p>
+      <p class="cost"><em>+ Cleaning Fee: </em><b> $160</b></p>
+      <p class="cost">
+        <em>Final Cost: </em><b> ${{ totalCost }}</b>
+      </p>
+      <p class="cost" v-if="price.twoweeks != 0">
+        <em>(Discounted monthly rates)</em>
+      </p>
     </section>
 
     <div class="bottom">
@@ -132,6 +133,11 @@ export default {
     WebsiteService.getAllPics().then((r) => {
       this.pictures = r.data;
     });
+  },
+  computed: {
+    totalCost() {
+      return this.price.weekly + 160;
+    },
   },
   methods: {
     winterPrices() {
@@ -340,52 +346,39 @@ export default {
   gap: 1%;
   justify-content: center;
 } */
-#pics {
-  grid-area: main;
+#gallery {
+  /* grid-area: main; */
   display: flex;
-}
-
-#main-photo {
-  /* flex-basis: 50%; */
-  max-width: 40%;
-  height: auto;
-  border-top-left-radius: 5%;
-  border-bottom-left-radius: 5%;
+  flex-wrap: wrap;
   margin-left: 10%;
-}
-
-/* .other-photos {
-  flex-basis: 25%;
-  max-width: 25%;
-  height: 25%;
-} */
-
-#square {
-  grid-area: gal;
-  display: flex;
   margin-right: 10%;
 }
 
-.other-photos {
-  flex-basis: 25%;
-  flex-wrap: wrap;
-  max-width: 25%;
-  height: 25%;
+#main-photo {
+  flex: 1 1 40%; /* Set flex properties to make it take up 100% of the container width */
+  height: auto;
+  border-bottom-left-radius: 3%;
+  border-top-left-radius: 3%;
+  margin-right: 10px;
 }
-#living-room {
-  grid-area: living;
-}
-#chairs {
-  grid-area: chairs;
 
+#square {
+  flex: 1 1 40%; /* Set flex properties to make it take up 50% of the container width */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+#square img {
+  width: 100%;
+  height: auto;
+}
+
+#chairs {
   border-bottom-right-radius: 5%;
 }
-#guest-bed {
-  grid-area: guest;
-}
+
 #master-bed {
   border-top-right-radius: 5%;
-  grid-area: bed;
 }
 #address {
   font-size: 4vw;
@@ -396,11 +389,5 @@ export default {
   text-decoration: underline;
   padding-left: 14%;
 }
-/* #gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1;
-  grid-template-areas: "main gal";
-} */
 </style>
 
