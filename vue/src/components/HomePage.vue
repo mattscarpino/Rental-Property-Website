@@ -38,78 +38,135 @@
         />
       </div>
     </div>
+    <div id="topRow">
+      <div id="TopInformation">
+        <section class="factoids">
+          <img
+            src="http://clipart-library.com/newimages/bed-clip-art-20.jpg"
+            class="clipArt"
+          />
+          <h1 class="tips">Where You'll Sleep</h1>
+          <p class="description">2 bedroom - 3 bed - 2.5 bath</p>
+        </section>
+        <section class="factoids">
+          <img
+            src="https://www.iconpacks.net/icons/2/free-location-pin-icon-3090-thumb.png"
+            class="clipArt"
+          />
+          <h1 class="tips">Great Location</h1>
+          <p class="description">
+            Walking distance to beach and Coligny Circle
+          </p>
+        </section>
 
-    <div id="TopInformation">
-      <section class="factoids">
-        <img
-          src="http://clipart-library.com/newimages/bed-clip-art-20.jpg"
-          class="clipArt"
-        />
-        <h1 class="tips">Where You'll Sleep</h1>
-        <p class="description">2 bedroom - 3 bed - 2.5 bath</p>
-      </section>
-      <section class="factoids">
-        <img
-          src="https://www.iconpacks.net/icons/2/free-location-pin-icon-3090-thumb.png"
-          class="clipArt"
-        />
-        <h1 class="tips">Great Location</h1>
-        <p class="description">Walking distance to beach and Coligny Circle</p>
-      </section>
+        <section class="factoids">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/010/788/318/original/double-wrench-icon-with-hammer-icon-related-to-construction-labor-day-line-icon-style-simple-design-editable-vector.jpg"
+            class="clipArt"
+          />
+          <h1 class="tips">Recently Rennovated</h1>
+          <p class="description">Counters / Floors / Furniture / Appliances</p>
+        </section>
+      </div>
+      <section class="pricing" id="allprices">
+        <button @click="springPrices()" class="btn">Spring</button>
+        <button @click="summerPrices()" class="btn">Summer</button>
+        <button @click="fallPrices()" class="btn">Fall</button>
+        <button @click="winterPrices()" class="btn">Winter</button>
 
-      <section class="factoids">
-        <img
-          src="https://static.vecteezy.com/system/resources/previews/010/788/318/original/double-wrench-icon-with-hammer-icon-related-to-construction-labor-day-line-icon-style-simple-design-editable-vector.jpg"
-          class="clipArt"
-        />
-        <h1 class="tips">Recently Rennovated</h1>
-        <p class="description">Counters / Floors / Furniture / Appliances</p>
+        <p class="season">
+          <em>{{ price.season }}</em>
+        </p>
+        <p v-if="num == 1" class="dates"><em>December 1 - February 28</em></p>
+        <p v-if="num == 2" class="dates"><em>March 1 - Memorial Day</em></p>
+        <p v-if="num == 3" class="dates"><em>Memorial Day - Labor Day</em></p>
+        <p v-if="num == 4" class="dates"><em>Labor Day - November 30</em></p>
+
+        <p class="cost">
+          <b>${{ price.daily }}</b
+          ><em> / night</em>
+        </p>
+
+        <p class="cost">
+          <b>${{ price.weekly }}</b
+          ><em> / week</em>
+        </p>
+
+        <p class="cost"><em>+ Cleaning Fee: </em><b> $160</b></p>
+        <p class="cost">
+          <em>Final Cost: </em><b> ${{ totalCost }}</b>
+        </p>
+        <p class="see-more">More pricing</p>
       </section>
     </div>
-    <section class="pricing" id="allprices">
-      <button @click="springPrices()" class="btn">Spring</button>
-      <button @click="summerPrices()" class="btn">Summer</button>
-      <button @click="fallPrices()" class="btn">Fall</button>
-      <button @click="winterPrices()" class="btn">Winter</button>
-
-      <p class="season">
-        <em>{{ price.season }}</em>
-      </p>
-      <p v-if="num == 1" class="dates"><em>December 1 - February 28</em></p>
-      <p v-if="num == 2" class="dates"><em>March 1 - Memorial Day</em></p>
-      <p v-if="num == 3" class="dates"><em>Memorial Day - Labor Day</em></p>
-      <p v-if="num == 4" class="dates"><em>Labor Day - November 30</em></p>
-
-      <p class="cost">
-        <b>${{ price.daily }}</b
-        ><em> / night</em>
-      </p>
-
-      <p class="cost">
-        <b>${{ price.weekly }}</b
-        ><em> / week</em>
-      </p>
-
-      <p class="cost"><em>+ Cleaning Fee: </em><b> $160</b></p>
-      <p class="cost">
-        <em>Final Cost: </em><b> ${{ totalCost }}</b>
-      </p>
-      <p class="cost" v-if="price.twoweeks != 0">
-        <em>(Discounted monthly rates)</em>
-      </p>
-    </section>
-
-    <section class="pricing">
-      <h1 class="descrp">Description</h1>
-      <p class="other-desc-not-indented">
-        A two bedroom town house that has been recently rennovated. Has 3 beds
-        and 2.5 baths along with a full kitchen, washer, and dryer. Overlooks
-        the pool and is in walking distance to the beach and Coligny Circle.
-      </p>
-    </section>
-    <section id="amenities">
-      <h1>What we offer</h1>
-    </section>
+    <div id="bottomRow">
+      <section class="pricing" id="secondBox">
+        <h1 class="descrp">About This Property</h1>
+        <p class="other-desc-not-indented" v-if="shrink">
+          Hilton Head Island villa in South Forest Beach with kitchen and patio
+          Surf Court 48 is a 2 bedroom, 2 1/2 bathroom two-story condo with a
+          ground-level entry located in South Forest Beach. This condo is an end
+          unit with an assigned parking space right outside the door, as well as
+          several guest spots right around the corner of the...
+        </p>
+        <p class="see-more" @click="collapseDescription" v-if="shrink">
+          See more
+        </p>
+        <p v-if="!shrink" class="other-desc-not-indented">
+          Hilton Head Island villa in South Forest Beach with kitchen and patio
+          Surf Court 48 is a 2 bedroom, 2 1/2 bathroom two-story condo with a
+          ground-level entry located in South Forest Beach. This condo is an end
+          unit with an assigned parking space right outside the door, as well as
+          several guest spots right around the corner of the condo. The main
+          floor was completely remodeled in 2016 with the addition of ceramic
+          tile floors, stainless steel appliances, as well as new cabinets and
+          granite countertops in both the kitchen and the half bath. Ceiling
+          fans were added to the living room and both bedrooms. The entire condo
+          was painted and new carpeting was added on the stairs and in the
+          upstairs bedrooms and hall (the primary bedroom and both upstairs
+          bathrooms have been repainted since 2019). A new HVAC system was
+          installed in April 2018. A new washer and dryer were added in June of
+          2021. The two bedrooms on the second floor each have a private
+          bathroom, as well as closets, an armoire, and a television. One
+          bedroom has a king-size bed, while the other has a queen and a twin.
+          There is also a sofa bed in the living room. In addition to the
+          bedroom televisions, there is a large flat panel television in the
+          living room with three HDMI ports for you to hook up a gaming system.
+          The condo has cable television and a DVD player, as well as secure
+          wireless internet. Outside the front door is a gated area to keep your
+          bicycles and beach chairs. Beach access is right across the street
+          from the front of the complex and there are many paved bike paths
+          nearby. Also, the Van Der Meer tennis center is down the street from
+          the condo. Outside the sliding glass door in the living room is a
+          patio with a table, chairs, and umbrella, as well as access to the
+          courtyard and the wonderful pool. Surf Court is close to restaurants
+          and grocery stores, and also is within walking or biking distance of
+          Coligny Plaza, which has restaurants and a variety of interesting
+          shops. Air-conditioned accommodations at this villa offer DVD players
+          and coffee/tea makers. Rooms open to patios. Kitchens offer
+          refrigerators, stovetops, microwaves, and cookware/dishes/utensils.
+          Bathrooms include shower/tub combinations and hair dryers. The
+          recreational activities listed below are available either on site or
+          nearby; fees may apply.
+        </p>
+        <p class="see-more" @click="collapseDescription" v-if="!shrink">
+          See less
+        </p>
+      </section>
+      <section id="amenities">
+        <h1 class="descrp">What we offer</h1>
+        <!-- <ul id="list"> -->
+        <div
+          id="offerings"
+          v-for="offering in offerings"
+          :key="offering.amenity"
+        >
+          <img class="icon" v-bind:src="offering.url" />
+          <p class="amenity">{{ offering.amenity }}</p>
+        </div>
+        <!-- </ul> -->
+      </section>
+    </div>
   </div>
 </template>
 
@@ -121,6 +178,7 @@ export default {
     return {
       prices: [],
       pictures: [],
+      offerings: [],
       price: {
         daily: "",
         priceID: "",
@@ -129,6 +187,7 @@ export default {
         twoweeks: "",
       },
       num: "",
+      shrink: true,
     };
   },
 
@@ -140,6 +199,9 @@ export default {
     WebsiteService.getAllPics().then((r) => {
       this.pictures = r.data;
     });
+    WebsiteService.getAllOfferings().then((r) => {
+      this.offerings = r.data;
+    });
   },
   computed: {
     totalCost() {
@@ -147,6 +209,10 @@ export default {
     },
   },
   methods: {
+    collapseDescription() {
+      this.shrink = !this.shrink;
+    },
+
     winterPrices() {
       this.num = 1;
       this.prices.forEach((p) => {
@@ -219,14 +285,28 @@ export default {
 </script>
 
 <style scoped>
+#offerings {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+.icon {
+  display: inline-block;
+  width: 10%;
+  margin-left: 0%;
+}
+.amenity {
+  display: inline-block;
+  padding-left: 5%;
+  /* margin: auto; */
+}
 #hiltonheadlogo {
   display: inline-block;
-  width: 20%;
+  width: 15%;
   height: auto;
 }
 #homeButton {
   display: inline-block;
-  margin-left: 22%;
+  margin-left: 25%;
   font-size: 2.5vw;
 }
 #activityButton {
@@ -242,35 +322,43 @@ export default {
   border-bottom: 0.01em solid black;
   background-color: white;
 }
-
-@media (max-width: 820px) {
-  .other-photos {
-    display: none;
-  }
-  div#square {
-    display: none;
-  }
-
-  #gallery {
-    display: flex;
-  }
-  #main-photo {
-    width: 100%;
-    height: auto;
-  }
-  #address {
-    display: inline-block;
-    margin-top: 10%;
-    font-size: 4vw;
-    padding-left: 5%;
-  }
-  #location {
-    display: inline-block;
-    font-size: 2vw;
-    text-decoration: underline;
-    padding-left: 3%;
-  }
+.see-more {
+  text-align: left;
+  font-size: 1.7vw;
+  color: blue;
 }
+.see-more:hover {
+  text-decoration: underline;
+}
+
+.other-desc-not-indented {
+  text-align: center;
+}
+
+.factoids {
+  border-bottom: 0.1em solid #5e5df0;
+  margin-bottom: 3%;
+}
+
+.pricing {
+  display: inline-block;
+  width: 35%;
+  background-color: whitesmoke;
+  padding: 2%;
+  margin-top: 5%;
+  align-content: center;
+  box-sizing: border-box;
+  border-radius: 5%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px 0px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px 0px;
+}
+
+#offerings {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 500px) {
   #TopInformation {
     display: block;
@@ -278,7 +366,11 @@ export default {
     padding-left: 12%;
     padding-right: 12%;
     padding-top: 8%;
-    padding-bottom: 8%;
+  }
+
+  #topRow {
+    display: flex;
+    flex-direction: column-reverse;
   }
   .clipArt {
     display: inline-block;
@@ -303,7 +395,9 @@ export default {
     display: block;
     margin: auto;
     width: 50%;
+    margin-top: 8%;
   }
+
   .btn {
     flex-wrap: wrap;
     background: #5e5df0;
@@ -318,10 +412,10 @@ export default {
       "Helvetica Neue", "Noto Sans", sans-serif;
     font-size: 2.3vw;
     font-weight: 700;
-    line-height: 3vh;
+    line-height: 200%;
     opacity: 1;
     outline: 0 solid transparent;
-    padding: 0.3vh 4%;
+    padding: 0.6% 4%;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -350,6 +444,13 @@ export default {
 }
 
 @media (min-width: 501px) {
+  #allprices {
+    margin-left: 3%;
+  }
+  #secondBox {
+    margin-left: 5%;
+    width: 45%;
+  }
   #TopInformation {
     display: inline-block;
     margin-top: 5%;
@@ -392,10 +493,10 @@ export default {
       "Helvetica Neue", "Noto Sans", sans-serif;
     font-size: 1.7vw;
     font-weight: 700;
-    line-height: 4vh;
+    line-height: 200%;
     opacity: 1;
     outline: 0 solid transparent;
-    padding: 0.3vh 4%;
+    padding: 0.6% 4%;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
@@ -421,45 +522,64 @@ export default {
   }
 }
 
-#amenities {
-  display: inline-block;
-  justify-content: right;
-  margin-left: 20%;
-  width: 35%;
-}
-
-.other-desc-not-indented {
-  font-size: 1.7vw;
-  text-align: center;
-}
-
-.descrp {
-  font-size: 2.7vw;
-  text-align: center;
-}
-
-.factoids {
-  border-bottom: 0.1em solid #5e5df0;
-  margin-bottom: 3%;
-}
-
-.pricing {
-  display: inline-block;
-  width: 35%;
-  background-color: #f0f0f0;
-  padding: 2%;
-  margin-left: 3%;
-  margin-top: 5%;
-  align-content: center;
-  box-sizing: border-box;
-  border-radius: 5%;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px 0px,
-    rgba(0, 0, 0, 0.23) 0px 3px 6px 0px;
-}
-
 /* CSS */
+@media (max-width: 820px) {
+  .descrp {
+    font-size: 3.5vw;
+    text-align: center;
+  }
+  .other-desc-not-indented {
+    font-size: 2.3vw;
+  }
+  .other-photos {
+    display: none;
+  }
+  div#square {
+    display: none;
+  }
+
+  #gallery {
+    display: flex;
+  }
+  #main-photo {
+    width: 100%;
+    height: auto;
+  }
+  #address {
+    display: inline-block;
+    margin-top: 10%;
+    font-size: 4vw;
+    padding-left: 5%;
+  }
+  #location {
+    display: inline-block;
+    font-size: 2vw;
+    text-decoration: underline;
+    padding-left: 3%;
+  }
+  #amenities {
+    display: block;
+    position: relative;
+    text-align: center;
+    margin: 5% auto 0% auto;
+    width: 70%;
+  }
+  #secondBox {
+    display: block;
+    margin: auto;
+    margin-top: 10%;
+    width: 80%;
+  }
+}
 
 @media (min-width: 821px) {
+  .other-desc-not-indented {
+    font-size: 1.7vw;
+  }
+  .descrp {
+    font-size: 2.7vw;
+    text-align: center;
+  }
   #gallery {
     display: flex;
     flex-wrap: wrap;
@@ -504,6 +624,14 @@ export default {
     font-size: 1.5vw;
     text-decoration: underline;
     padding-left: 3%;
+  }
+  #amenities {
+    display: inline-block;
+    position: absolute;
+    margin: auto;
+    margin-left: 5%;
+    text-align: center;
+    width: 35%;
   }
 }
 </style>

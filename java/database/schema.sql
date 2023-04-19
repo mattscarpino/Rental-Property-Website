@@ -2,6 +2,7 @@ BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS pictures;
 DROP TABLE IF EXISTS prices;
+DROP TABLE IF EXISTS offerings;
 
 CREATE TABLE pictures
 (
@@ -22,4 +23,12 @@ CREATE TABLE prices
 	PRIMARY KEY(prices_id)
 );
 
+CREATE TABLE offerings
+(
+	offerings_id SERIAL,
+	amenity varchar(100) NOT NULL,
+	photo varchar(5000) NOT NULL,
+	
+	PRIMARY KEY(offerings_id)
+);
 COMMIT;
