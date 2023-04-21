@@ -21,13 +21,15 @@ public class JdbcPriceDao implements PriceDao{
     public List<Price> getPrices() {
         List<Price> prices = new ArrayList<>();
 
-        String sql = "SELECT prices_id, season, daily, weekly, twoweeks FROM prices;";
+        String sql = "SELECT prices_id, season, daily, weekly, two_weeks, three_weeks, four_weeks FROM prices;";
 
         SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(sql);
 
         while(sqlRowSet.next()){
             Price price = new Price(sqlRowSet.getInt("prices_id"), sqlRowSet.getString("season"),
-                    sqlRowSet.getInt("daily"), sqlRowSet.getInt("weekly"), sqlRowSet.getInt("twoweeks"));
+                    sqlRowSet.getInt("daily"), sqlRowSet.getInt("weekly"),
+                    sqlRowSet.getInt("two_weeks"),sqlRowSet.getInt("three_weeks"),
+                    sqlRowSet.getInt("four_weeks"));
             prices.add(price);
         }
 

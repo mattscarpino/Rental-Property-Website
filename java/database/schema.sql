@@ -18,7 +18,9 @@ CREATE TABLE prices
 	season varchar(50) NOT NULL,
 	daily INTEGER NOT NULL,
 	weekly INTEGER NOT NULL,
-	twoweeks INTEGER NOT NULL,
+	two_weeks INTEGER NOT NULL,
+	three_weeks INTEGER NOT NULL,
+	four_weeks INTEGER NOT NULL,
 	
 	PRIMARY KEY(prices_id)
 );

@@ -6,7 +6,13 @@
         alt=""
         id="hiltonheadlogo"
       />
-      <h1 id="homeButton">Home</h1>
+      <router-link
+        class="router"
+        :to="{
+          name: 'home',
+        }"
+        ><h1 id="homeButton">Home</h1></router-link
+      >
       <h1 id="activityButton">Activities</h1>
     </header>
     <h1 id="address">Property</h1>
@@ -96,7 +102,13 @@
         <p class="cost">
           <em>Final Cost: </em><b> ${{ totalCost }}</b>
         </p>
-        <p class="see-more">More pricing</p>
+        <router-link
+          class="router"
+          :to="{
+            name: 'prices',
+          }"
+          ><p class="see-more">More pricing</p></router-link
+        >
       </section>
     </div>
     <div id="bottomRow">
@@ -107,7 +119,17 @@
           Surf Court 48 is a 2 bedroom, 2 1/2 bathroom two-story condo with a
           ground-level entry located in South Forest Beach. This condo is an end
           unit with an assigned parking space right outside the door, as well as
-          several guest spots right around the corner of the...
+          several guest spots right around the corner of the condo. The main
+          floor was completely remodeled in 2016 with the addition of ceramic
+          tile floors, stainless steel appliances, as well as new cabinets and
+          granite countertops in both the kitchen and the half bath. Ceiling
+          fans were added to the living room and both bedrooms. The entire condo
+          was painted and new carpeting was added on the stairs and in the
+          upstairs bedrooms and hall (the primary bedroom and both upstairs
+          bathrooms have been repainted since 2019). A new HVAC system was
+          installed in April 2018. A new washer and dryer were added in June of
+          2021. The two bedrooms on the second floor each have a private
+          bathroom...
         </p>
         <p class="see-more" @click="collapseDescription" v-if="shrink">
           See more
@@ -161,7 +183,7 @@
           v-for="offering in offerings"
           :key="offering.amenity"
         >
-          <img class="icon" v-bind:src="offering.url" />
+          <img class="clipArt" v-bind:src="offering.url" />
           <p class="amenity">{{ offering.amenity }}</p>
         </div>
         <!-- </ul> -->
@@ -184,7 +206,9 @@ export default {
         priceID: "",
         season: "",
         weekly: "",
-        twoweeks: "",
+        twoWeeks: "",
+        threeWeeks: "",
+        fourWeeks: "",
       },
       num: "",
       shrink: true,
@@ -285,18 +309,23 @@ export default {
 </script>
 
 <style scoped>
+.router {
+  text-decoration: none;
+}
 #offerings {
-  display: flex;
+  /* display: flex; */
   /* flex-wrap: wrap; */
+  margin-bottom: 2%;
 }
 .icon {
-  display: inline-block;
+  /* display: inline-block; */
   width: 10%;
   margin-left: 0%;
 }
 .amenity {
-  display: inline-block;
+  /* display: inline-block; */
   padding-left: 5%;
+  text-align: center;
   /* margin: auto; */
 }
 #hiltonheadlogo {
@@ -305,9 +334,13 @@ export default {
   height: auto;
 }
 #homeButton {
+  color: black;
   display: inline-block;
   margin-left: 25%;
   font-size: 2.5vw;
+}
+#homeButton:hover {
+  text-decoration: underline;
 }
 #activityButton {
   display: inline-block;
@@ -315,6 +348,7 @@ export default {
   font-size: 2.5vw;
 }
 #topOfPage {
+  z-index: 999;
   overflow: hidden;
   position: fixed;
   width: 100%;
@@ -629,6 +663,7 @@ export default {
     display: inline-block;
     position: absolute;
     margin: auto;
+    margin-top: 5%;
     margin-left: 5%;
     text-align: center;
     width: 35%;

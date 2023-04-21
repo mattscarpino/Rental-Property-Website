@@ -1,22 +1,22 @@
 BEGIN TRANSACTION;
 
-INSERT INTO prices(season, daily, weekly, twoweeks)
-VALUES('winter',120, 800, 1);
+INSERT INTO prices(season, daily, weekly, two_weeks, three_weeks, four_weeks)
+VALUES('winter',120, 800, 1400, 1950, 2450);
 
-INSERT INTO prices(season, daily, weekly, twoweeks)
-VALUES('spring',175, 1225, 0);
+INSERT INTO prices(season, daily, weekly, two_weeks, three_weeks, four_weeks)
+VALUES('spring',175, 1225, 2150, 3050, 3900);
 
-INSERT INTO prices(season, daily, weekly, twoweeks)
-VALUES('summer',215, 1500, 0);
+INSERT INTO prices(season, daily, weekly, two_weeks, three_weeks, four_weeks)
+VALUES('summer',215, 1500, 0, 0, 0);
 
-INSERT INTO prices(season, daily, weekly, twoweeks)
-VALUES('fall',175, 1225, 0);
+INSERT INTO prices(season, daily, weekly, two_weeks, three_weeks, four_weeks)
+VALUES('fall',175, 1225, 2150, 3050, 3900);
+
+INSERT INTO offerings(amenity, photo)
+VALUES('3 bed','http://clipart-library.com/newimages/bed-clip-art-20.jpg');
 
 INSERT INTO offerings(amenity, photo)
 VALUES('2.5 bath','https://img.freepik.com/premium-vector/shower-icon_535345-3559.jpg?w=2000');
-
-INSERT INTO offerings(amenity, photo)
-VALUES('3 bed','https://t4.ftcdn.net/jpg/05/03/32/35/360_F_503323522_qvU0AkmlnGXF2JyKYw0lPHsBJ27jRBtH.jpg');
 
 INSERT INTO offerings(amenity, photo)
 VALUES('Kitchen','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu0KU302Ki5U86sVN1l7Ey5UfS31Y4wzR7kM1JTZc9zw&usqp=CAU&ec=48665699');
@@ -38,9 +38,6 @@ VALUES('TV','https://static.vecteezy.com/system/resources/previews/000/582/064/o
 
 INSERT INTO offerings(amenity, photo)
 VALUES('Community pool','https://static.vecteezy.com/system/resources/thumbnails/001/500/429/small/swimming-pool-icon-free-vector.jpg');
-
-INSERT INTO offerings(amenity, photo)
-VALUES('NO Bathtub','https://static.thenounproject.com/png/3650255-200.png');
 
 COMMIT;
 
