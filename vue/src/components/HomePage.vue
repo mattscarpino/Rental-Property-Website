@@ -116,60 +116,58 @@
         <h1 class="descrp">About This Property</h1>
         <p class="other-desc-not-indented" v-if="shrink">
           Hilton Head Island villa in South Forest Beach with kitchen and patio
-          Surf Court 48 is a 2 bedroom, 2 1/2 bathroom two-story condo with a
-          ground-level entry located in South Forest Beach. This condo is an end
-          unit with an assigned parking space right outside the door, as well as
-          several guest spots right around the corner of the condo. The main
-          floor was completely remodeled in 2016 with the addition of ceramic
-          tile floors, stainless steel appliances, as well as new cabinets and
-          granite countertops in both the kitchen and the half bath. Ceiling
-          fans were added to the living room and both bedrooms. The entire condo
-          was painted and new carpeting was added on the stairs and in the
-          upstairs bedrooms and hall (the primary bedroom and both upstairs
-          bathrooms have been repainted since 2019). A new HVAC system was
-          installed in April 2018. A new washer and dryer were added in June of
-          2021. The two bedrooms on the second floor each have a private
-          bathroom...
+          is a 2 bedroom, 2 1/2 bathroom two-story condo with a ground-level
+          entry located in South Forest Beach. This condo is an end unit with an
+          assigned parking space right outside the door, as well as several
+          guest spots right around the corner of the condo. The main floor was
+          completely remodeled in 2016 with the addition of ceramic tile floors,
+          stainless steel appliances, as well as new cabinets and granite
+          countertops in both the kitchen and the half bath. Ceiling fans were
+          added to the living room and both bedrooms. The entire condo was
+          painted and new carpeting was added on the stairs and in the upstairs
+          bedrooms and hall (the primary bedroom and both upstairs bathrooms
+          have been repainted since 2019). A new HVAC system was installed in
+          April 2018. A new washer and dryer were added in June of 2021. The two
+          bedrooms on the second floor each have a private bathroom...
         </p>
         <p class="see-more" @click="collapseDescription" v-if="shrink">
           See more
         </p>
         <p v-if="!shrink" class="other-desc-not-indented">
           Hilton Head Island villa in South Forest Beach with kitchen and patio
-          Surf Court 48 is a 2 bedroom, 2 1/2 bathroom two-story condo with a
-          ground-level entry located in South Forest Beach. This condo is an end
-          unit with an assigned parking space right outside the door, as well as
-          several guest spots right around the corner of the condo. The main
-          floor was completely remodeled in 2016 with the addition of ceramic
-          tile floors, stainless steel appliances, as well as new cabinets and
-          granite countertops in both the kitchen and the half bath. Ceiling
-          fans were added to the living room and both bedrooms. The entire condo
-          was painted and new carpeting was added on the stairs and in the
-          upstairs bedrooms and hall (the primary bedroom and both upstairs
-          bathrooms have been repainted since 2019). A new HVAC system was
-          installed in April 2018. A new washer and dryer were added in June of
-          2021. The two bedrooms on the second floor each have a private
-          bathroom, as well as closets, an armoire, and a television. One
-          bedroom has a king-size bed, while the other has a queen and a twin.
-          There is also a sofa bed in the living room. In addition to the
-          bedroom televisions, there is a large flat panel television in the
-          living room with three HDMI ports for you to hook up a gaming system.
-          The condo has cable television and a DVD player, as well as secure
-          wireless internet. Outside the front door is a gated area to keep your
-          bicycles and beach chairs. Beach access is right across the street
-          from the front of the complex and there are many paved bike paths
-          nearby. Also, the Van Der Meer tennis center is down the street from
-          the condo. Outside the sliding glass door in the living room is a
-          patio with a table, chairs, and umbrella, as well as access to the
-          courtyard and the wonderful pool. Surf Court is close to restaurants
-          and grocery stores, and also is within walking or biking distance of
-          Coligny Plaza, which has restaurants and a variety of interesting
-          shops. Air-conditioned accommodations at this villa offer DVD players
-          and coffee/tea makers. Rooms open to patios. Kitchens offer
-          refrigerators, stovetops, microwaves, and cookware/dishes/utensils.
-          Bathrooms include shower/tub combinations and hair dryers. The
-          recreational activities listed below are available either on site or
-          nearby; fees may apply.
+          is a 2 bedroom, 2 1/2 bathroom two-story condo with a ground-level
+          entry located in South Forest Beach. This condo is an end unit with an
+          assigned parking space right outside the door, as well as several
+          guest spots right around the corner of the condo. The main floor was
+          completely remodeled in 2016 with the addition of ceramic tile floors,
+          stainless steel appliances, as well as new cabinets and granite
+          countertops in both the kitchen and the half bath. Ceiling fans were
+          added to the living room and both bedrooms. The entire condo was
+          painted and new carpeting was added on the stairs and in the upstairs
+          bedrooms and hall (the primary bedroom and both upstairs bathrooms
+          have been repainted since 2019). A new HVAC system was installed in
+          April 2018. A new washer and dryer were added in June of 2021. The two
+          bedrooms on the second floor each have a private bathroom, as well as
+          closets, an armoire, and a television. One bedroom has a king-size
+          bed, while the other has a queen and a twin. There is also a sofa bed
+          in the living room. In addition to the bedroom televisions, there is a
+          large flat panel television in the living room with three HDMI ports
+          for you to hook up a gaming system. The condo has cable television and
+          a DVD player, as well as secure wireless internet. Outside the front
+          door is a gated area to keep your bicycles and beach chairs. Beach
+          access is right across the street from the front of the complex and
+          there are many paved bike paths nearby. Also, the Van Der Meer tennis
+          center is down the street from the condo. Outside the sliding glass
+          door in the living room is a patio with a table, chairs, and umbrella,
+          as well as access to the courtyard and the wonderful pool. Surf Court
+          is close to restaurants and grocery stores, and also is within walking
+          or biking distance of Coligny Plaza, which has restaurants and a
+          variety of interesting shops. Air-conditioned accommodations at this
+          villa offer DVD players and coffee/tea makers. Rooms open to patios.
+          Kitchens offer refrigerators, stovetops, microwaves, and
+          cookware/dishes/utensils. Bathrooms include shower/tub combinations
+          and hair dryers. The recreational activities listed below are
+          available either on site or nearby; fees may apply.
         </p>
         <p class="see-more" @click="collapseDescription" v-if="!shrink">
           See less
@@ -370,14 +368,14 @@ export default {
 }
 
 .factoids {
-  border-bottom: 0.1em solid #5e5df0;
+  border-bottom: 0.1em solid black;
   margin-bottom: 3%;
 }
 
 .pricing {
   display: inline-block;
   width: 35%;
-  background-color: whitesmoke;
+  background-color: #fbeec9;
   padding: 2%;
   margin-top: 5%;
   align-content: center;
@@ -434,9 +432,9 @@ export default {
 
   .btn {
     flex-wrap: wrap;
-    background: #5e5df0;
+    background: #659dbd;
     border-radius: 999px;
-    box-shadow: #5e5df0 0 10px 20px -10px;
+    box-shadow: #659dbd 0 10px 20px -10px;
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;
@@ -515,9 +513,9 @@ export default {
   }
   .btn {
     flex-wrap: wrap;
-    background: #5e5df0;
+    background: #659dbd;
     border-radius: 999px;
-    box-shadow: #5e5df0 0 10px 20px -10px;
+    box-shadow: #659dbd 0 10px 20px -10px;
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;

@@ -18,7 +18,9 @@
     </header>
     <body id="body">
       <div class="season" v-for="prices in allpricing" :key="prices.id">
-        <h1 class="name">{{ prices.season }}</h1>
+        <h1 class="name">
+          <em>{{ prices.season }}</em>
+        </h1>
         <div class="all">
           <section class="group">
             <h2 class="length">Daily</h2>
@@ -77,37 +79,73 @@ export default {
 </script>
 
 <style scoped>
-.length {
-  text-overflow: none;
-}
-.price {
-  text-align: center;
-}
-.all {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-}
-.name {
-  text-align: center;
-  text-transform: capitalize;
-  padding-top: 2%;
-}
-.group {
-  display: inline-block;
-  margin: 2%;
-  margin-top: 0%;
-}
-.season {
-  margin: auto;
-  margin-top: 15%;
-  /* border: 0.1em solid black; */
-  width: max-content;
-  overflow-wrap: anywhere;
-  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-  /* border-radius: 5%; */
+#body {
+  margin-top: 10%;
 }
 
+@media (max-width: 679px) {
+  .price {
+    display: flex;
+    justify-content: center;
+  }
+  .length {
+    display: flex;
+    justify-content: center;
+  }
+  .name {
+    text-align: center;
+    text-transform: capitalize;
+    padding-top: 2%;
+    border-bottom: 0.05em solid black;
+  }
+  .group {
+    display: block;
+    margin: 2vw;
+    margin-top: 0%;
+  }
+  .season {
+    margin: auto;
+    background-color: #fbeec9;
+    margin-bottom: 15%;
+    padding-bottom: 3%;
+    /* padding-top: 1%; */
+    /* border: 0.1em solid black; */
+    width: 70%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    /* border-radius: 5%; */
+  }
+}
+
+@media (min-width: 680px) {
+  .price {
+    text-align: center;
+  }
+  .all {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+  .name {
+    text-align: center;
+    text-transform: capitalize;
+    padding-top: 2%;
+    /* border-bottom: 0.05em solid black; */
+  }
+  .group {
+    display: inline-block;
+    margin: 2vw;
+    margin-top: 0%;
+  }
+  .season {
+    margin: auto;
+    background-color: #fbeec9;
+    margin-bottom: 10%;
+    /* border: 0.1em solid black; */
+    width: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    /* border-radius: 5%; */
+  }
+}
 /* Header */
 #hiltonheadlogo {
   display: inline-block;
