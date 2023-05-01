@@ -182,16 +182,16 @@
       </section>
       <section id="amenities">
         <h1 class="descrp">What we offer</h1>
-        <!-- <ul id="list"> -->
-        <div
-          id="offerings"
-          v-for="offering in offerings"
-          :key="offering.amenity"
-        >
-          <img class="clipArt" v-bind:src="offering.url" />
-          <p class="amenity">{{ offering.amenity }}</p>
+        <div id="grid">
+          <div
+            id="offerings"
+            v-for="offering in offerings"
+            :key="offering.amenity"
+          >
+            <img class="icon" v-bind:src="offering.url" />
+            <p class="amenity">{{ offering.amenity }}</p>
+          </div>
         </div>
-        <!-- </ul> -->
       </section>
     </div>
   </div>
@@ -314,16 +314,22 @@ export default {
 </script>
 
 <style scoped>
+#grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center;
+  padding-left: 10%;
+}
+
 #more-photos,
 .more-photos {
   display: flex;
   justify-content: right;
   text-decoration: none;
   margin-right: 5%;
-  /* margin-top: -2%; */
 }
-/* <!-- HTML !--> */
-/* <button class="button-75" role="button"><span class="text">Button 75</span></button> */
 
 /* CSS */
 #more-photos {
@@ -375,20 +381,12 @@ export default {
   text-decoration: none;
 }
 #offerings {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
   margin-bottom: 2%;
 }
-.icon {
-  /* display: inline-block; */
-  width: 10%;
-  margin-left: 0%;
-}
+
 .amenity {
-  /* display: inline-block; */
   padding-left: 5%;
   text-align: center;
-  /* margin: auto; */
 }
 #hiltonheadlogo {
   display: inline-block;
@@ -456,6 +454,9 @@ export default {
 }
 
 @media (max-width: 500px) {
+  .icon {
+    width: 30%;
+  }
   #more-photos {
     font-size: 2vw;
     padding: 2vw 2vh 2vw 2vh;
@@ -545,6 +546,9 @@ export default {
 }
 
 @media (min-width: 501px) {
+  .icon {
+    width: 20%;
+  }
   #allprices {
     margin-left: 3%;
   }
