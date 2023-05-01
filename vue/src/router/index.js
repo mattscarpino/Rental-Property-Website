@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue';
+import Home from '../views/Home.vue'
 import Prices from '../views/Prices.vue'
+import Photos from '../views/Photos.vue'
 
 Vue.use(Router)
 
@@ -21,6 +22,14 @@ const router = new Router({
       path: '/prices',
       name: 'prices',
       component: Prices,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/photos',
+      name: 'photos',
+      component: Photos,
       meta: {
         requiresAuth: false
       }

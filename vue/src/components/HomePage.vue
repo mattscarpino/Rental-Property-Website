@@ -44,6 +44,13 @@
         />
       </div>
     </div>
+    <router-link
+      class="more-photos"
+      :to="{
+        name: 'photos',
+      }"
+      ><button id="more-photos">Show All Photos</button></router-link
+    >
     <div id="topRow">
       <div id="TopInformation">
         <section class="factoids">
@@ -307,6 +314,63 @@ export default {
 </script>
 
 <style scoped>
+#more-photos,
+.more-photos {
+  display: flex;
+  justify-content: right;
+  text-decoration: none;
+  margin-right: 5%;
+  /* margin-top: -2%; */
+}
+/* <!-- HTML !--> */
+/* <button class="button-75" role="button"><span class="text">Button 75</span></button> */
+
+/* CSS */
+#more-photos {
+  align-items: center;
+  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "Codec cold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 30px;
+  justify-content: center;
+  letter-spacing: 0.4px;
+  line-height: 1;
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#more-photos:active {
+  outline: 0;
+}
+
+#more-photos:hover {
+  outline: 0;
+}
+
+#more-photos span {
+  transition: all 200ms;
+}
+
+#more-photos:hover span {
+  transform: scale(0.9);
+  opacity: 0.75;
+}
+
 .router {
   text-decoration: none;
 }
@@ -392,6 +456,11 @@ export default {
 }
 
 @media (max-width: 500px) {
+  #more-photos {
+    font-size: 2vw;
+    padding: 2vw 2vh 2vw 2vh;
+    height: 15px;
+  }
   #TopInformation {
     display: block;
     margin: auto;
@@ -556,6 +625,11 @@ export default {
 
 /* CSS */
 @media (max-width: 820px) {
+  .more-photos {
+    margin-top: -8%;
+    margin-right: 0%;
+    padding-right: 0%;
+  }
   .descrp {
     font-size: 3.5vw;
     text-align: center;
@@ -605,6 +679,10 @@ export default {
 }
 
 @media (min-width: 821px) {
+  #more-photos {
+    margin-top: -4%;
+    margin-right: 7%;
+  }
   .other-desc-not-indented {
     font-size: 1.7vw;
   }
