@@ -13,8 +13,9 @@
         }"
         ><h1 id="homeButton">Home</h1></router-link
       >
-
-      <h1 id="activityButton">Activities</h1>
+      <router-link class="router" :to="{ name: 'recommendation' }"
+        ><h1 id="activityButton">Recommendations</h1></router-link
+      >
     </header>
     <body id="body">
       <div class="season" v-for="prices in allpricing" :key="prices.id">
@@ -155,16 +156,20 @@ export default {
 #homeButton {
   color: black;
   display: inline-block;
-  margin-left: 25%;
+  margin-left: 20%;
   font-size: 2.5vw;
 }
 #homeButton:hover {
   text-decoration: underline;
 }
 #activityButton {
+  color: black;
   display: inline-block;
   margin-left: 3%;
   font-size: 2.5vw;
+}
+#activityButton:hover {
+  text-decoration: underline;
 }
 #topOfPage {
   z-index: 999;

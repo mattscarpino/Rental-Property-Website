@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '../views/Home.vue'
 import Prices from '../views/Prices.vue'
 import Photos from '../views/Photos.vue'
+import Recommendations from '../views/Recommendations.vue'
 
 Vue.use(Router)
 
@@ -30,6 +31,14 @@ const router = new Router({
       path: '/photos',
       name: 'photos',
       component: Photos,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/recommendations',
+      name: 'recommendation',
+      component: Recommendations,
       meta: {
         requiresAuth: false
       }

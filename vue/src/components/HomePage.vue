@@ -13,7 +13,9 @@
         }"
         ><h1 id="homeButton">Home</h1></router-link
       >
-      <h1 id="activityButton">Activities</h1>
+      <router-link class="router" :to="{ name: 'recommendation' }"
+        ><h1 id="activityButton">Recommendations</h1></router-link
+      >
     </header>
     <h1 id="address">Property</h1>
     <h4 id="location">Hilton Head Island, SC</h4>
@@ -111,10 +113,11 @@
         </p>
         <router-link
           class="router"
+          id="more"
           :to="{
             name: 'prices',
           }"
-          ><p class="see-more">More pricing</p></router-link
+          ><button id="more-photos">More pricing</button></router-link
         >
       </section>
     </div>
@@ -314,6 +317,10 @@ export default {
 </script>
 
 <style scoped>
+#more {
+  display: flex;
+  justify-content: center;
+}
 #grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -388,34 +395,6 @@ export default {
   padding-left: 5%;
   text-align: center;
 }
-#hiltonheadlogo {
-  display: inline-block;
-  width: 15%;
-  height: auto;
-}
-#homeButton {
-  color: black;
-  display: inline-block;
-  margin-left: 25%;
-  font-size: 2.5vw;
-}
-#homeButton:hover {
-  text-decoration: underline;
-}
-#activityButton {
-  display: inline-block;
-  margin-left: 3%;
-  font-size: 2.5vw;
-}
-#topOfPage {
-  z-index: 999;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  border-bottom: 0.01em solid black;
-  background-color: white;
-}
 .see-more {
   text-align: left;
   font-size: 1.7vw;
@@ -437,7 +416,7 @@ export default {
 .pricing {
   display: inline-block;
   width: 35%;
-  background-color: #fbeec9;
+  background-color: #f4f4f4;
   padding: 2%;
   margin-top: 5%;
   align-content: center;
@@ -563,6 +542,7 @@ export default {
     width: 40%;
     margin-left: 8%;
     align-content: center;
+    vertical-align: top;
   }
   .description {
     font-size: 1.7vw;
@@ -748,6 +728,40 @@ export default {
     text-align: center;
     width: 35%;
   }
+}
+
+/* header */
+#hiltonheadlogo {
+  display: inline-block;
+  width: 15%;
+  height: auto;
+}
+#homeButton {
+  color: black;
+  display: inline-block;
+  margin-left: 20%;
+  font-size: 2.5vw;
+}
+#homeButton:hover {
+  text-decoration: underline;
+}
+#activityButton {
+  color: black;
+  display: inline-block;
+  margin-left: 3%;
+  font-size: 2.5vw;
+}
+#activityButton:hover {
+  text-decoration: underline;
+}
+#topOfPage {
+  z-index: 999;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  border-bottom: 0.01em solid black;
+  background-color: white;
 }
 </style>
 

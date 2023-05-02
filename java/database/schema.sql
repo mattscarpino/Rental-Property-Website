@@ -3,6 +3,7 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS pictures;
 DROP TABLE IF EXISTS prices;
 DROP TABLE IF EXISTS offerings;
+DROP TABLE IF EXISTS recommendations;
 
 CREATE TABLE pictures
 (
@@ -32,5 +33,16 @@ CREATE TABLE offerings
 	photo varchar(5000) NOT NULL,
 	
 	PRIMARY KEY(offerings_id)
+);
+
+CREATE TABLE recommendations
+(
+	recommendations_id SERIAL,
+	type varchar(50) NOT NULL,
+	name varchar(200) NOT NULL,
+	description varchar(2000) NOT NULL,
+	pic_url varchar(5000) NOT NULL,
+	
+	PRIMARY KEY(recommendations_id)
 );
 COMMIT;

@@ -9,15 +9,18 @@ const requestConfig = {
 export default {
 
     getAllPrices() {
-        return axios.get('/api/prices');
+        return axios.get('/api/price');
     },
 
     getAllPics() {
-        return axios.get('/api/pictures');
+        return axios.get('/api/picture');
     },
 
     getAllOfferings() {
-        return axios.get('/api/offerings');
+        return axios.get('/api/offering');
+    },
+    getAllRecommendations() {
+        return axios.get('api/recommendation');
     },
 
 }

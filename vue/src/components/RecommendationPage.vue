@@ -1,3 +1,4 @@
+
 <template>
   <div>
     <header id="topOfPage">
@@ -18,54 +19,189 @@
       >
     </header>
     <body id="body">
-      <div v-for="image in getAllPhotos" :key="image.id">
-        <img class="photos" v-bind:src="image.image" />
+      <div id="choices">
+        <h1 class="options" @click="listAll">All</h1>
+        <h1 class="options" @click="listRestaurants">Restaurants</h1>
+        <h1 class="options" @click="listShops">Shopping</h1>
+        <h1 class="options" @click="listGolf">Golf</h1>
+        <h1 class="options" @click="listActivities">Activities</h1>
+      </div>
+      <div v-if="num == 0">
+        <section
+          class="location"
+          v-for="all in recommendations"
+          :key="all.recommendationId"
+        >
+          <img class="image" v-bind:src="all.picUrl" />
+
+          <div class="grid">
+            <h2 class="name">{{ all.name }}</h2>
+            <p class="description">{{ all.description }}</p>
+          </div>
+        </section>
+      </div>
+      <div v-if="num == 1">
+        <section
+          class="location"
+          v-for="restaurant in restaurants"
+          :key="restaurant.recommendationId"
+        >
+          <img class="image" v-bind:src="restaurant.picUrl" />
+
+          <div class="grid">
+            <h2 class="name">{{ restaurant.name }}</h2>
+            <p class="description">{{ restaurant.description }}</p>
+          </div>
+        </section>
+      </div>
+      <div v-if="num == 2">
+        <section
+          class="location"
+          v-for="shop in shopping"
+          :key="shop.recommendationId"
+        >
+          <img class="image" v-bind:src="shop.picUrl" />
+          <div class="grid">
+            <h2 class="name">{{ shop.name }}</h2>
+            <p class="description">{{ shop.description }}</p>
+          </div>
+        </section>
+      </div>
+      <div v-if="num == 3">
+        <section
+          class="location"
+          v-for="course in golf"
+          :key="course.recommendationId"
+        >
+          <img class="image" v-bind:src="course.picUrl" />
+          <div class="grid">
+            <h2 class="name">{{ course.name }}</h2>
+            <p class="description">{{ course.description }}</p>
+          </div>
+        </section>
+      </div>
+      <div v-if="num == 4">
+        <section
+          class="location"
+          v-for="activity in activities"
+          :key="activity.recommendationId"
+        >
+          <img class="image" v-bind:src="activity.picUrl" />
+          <div class="grid">
+            <h2 class="name">{{ activity.name }}</h2>
+            <p class="description">{{ activity.description }}</p>
+          </div>
+        </section>
       </div>
     </body>
   </div>
 </template>
 
 <script>
+import WebsiteService from "../services/website.js";
+
 export default {
-  computed: {
-    getAllPhotos() {
-      return this.$store.state.photoGallery;
+  data() {
+    return {
+      num: 0,
+      recommendations: [],
+      restaurants: [],
+      shopping: [],
+      golf: [],
+      activities: [],
+    };
+  },
+  created() {
+    WebsiteService.getAllRecommendations().then((r) => {
+      this.recommendations = r.data;
+      this.splitRecommendations();
+    });
+  },
+  methods: {
+    listAll() {
+      this.num = 0;
+    },
+    listRestaurants() {
+      this.num = 1;
+    },
+    listShops() {
+      this.num = 2;
+    },
+    listGolf() {
+      this.num = 3;
+    },
+    listActivities() {
+      this.num = 4;
+    },
+    splitRecommendations() {
+      this.restaurants = this.recommendations.filter((v) => {
+        if (v.type == "restaurant") {
+          return v;
+        }
+      });
+      this.shopping = this.recommendations.filter((v) => {
+        if (v.type == "shopping") {
+          return v;
+        }
+      });
+      this.golf = this.recommendations.filter((v) => {
+        if (v.type == "golf") {
+          return v;
+        }
+      });
+      this.activities = this.recommendations.filter((v) => {
+        if (v.type == "activities") {
+          return v;
+        }
+      });
     },
   },
 };
 </script>
 
 <style scoped>
-@media (max-width: 500px) {
-  #body {
-    margin-top: 10%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 10px;
-    justify-items: center;
-    align-items: center;
-    height: 100vh;
-  }
-  .photos {
-    width: 90vw;
-  }
+.title {
+  text-align: center;
 }
-@media (min-width: 501px) {
-  .photos {
-    width: 45vw;
-  }
-  #body {
-    margin-top: 10%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    justify-items: center;
-    align-items: center;
-    height: 100vh;
-  }
+.location {
+  display: flex;
+  margin-top: 5%;
+  background-color: #f4f4f4;
 }
-
-/* Header */
+.image {
+  width: 30vw;
+  padding-left: 2%;
+}
+.grid {
+  width: 60vw;
+  padding-left: 4%;
+}
+.name {
+  text-align: center;
+  font-size: 2.5vw;
+  border-bottom: 0.07em solid gray;
+}
+.description {
+  text-align: center;
+  font-size: 2vw;
+}
+#choices {
+  display: flex;
+  justify-content: space-around;
+  margin: 0% 10% 0% 10%;
+  border-bottom: 0.07em solid black;
+}
+.options {
+  font-size: 3vw;
+}
+.options:hover {
+  text-decoration: underline;
+}
+#body {
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+/* header */
 #hiltonheadlogo {
   display: inline-block;
   width: 15%;
