@@ -98,6 +98,7 @@ export default {
     text-transform: capitalize;
     padding-top: 2%;
     border-bottom: 0.05em solid black;
+    margin: 0 2vw 0 2vw;
   }
   .group {
     display: block;
@@ -106,7 +107,7 @@ export default {
   }
   .season {
     margin: auto;
-    background-color: #fbeec9;
+    background-color: #f4f4f4;
     margin-bottom: 15%;
     padding-bottom: 3%;
     /* padding-top: 1%; */
@@ -139,7 +140,7 @@ export default {
   }
   .season {
     margin: auto;
-    background-color: #fbeec9;
+    background-color: #f4f4f4;
     margin-bottom: 10%;
     /* border: 0.1em solid black; */
     width: fit-content;

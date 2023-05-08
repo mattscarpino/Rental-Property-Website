@@ -160,43 +160,75 @@ export default {
 </script>
 
 <style scoped>
-.title {
-  text-align: center;
+@media (min-width: 600px) {
+  .title {
+    text-align: center;
+  }
+  .location {
+    display: flex;
+    margin-top: 5%;
+    background-color: #f4f4f4;
+  }
+  .image {
+    width: 30vw;
+  }
+  .grid {
+    width: 60vw;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+  .name {
+    text-align: center;
+    font-size: 3.5vw;
+    border-bottom: 0.07em solid gray;
+    margin: 1vh 3vw 0 3vw;
+  }
+
+  .description {
+    text-align: center;
+    font-size: 2vw;
+  }
 }
-.location {
-  display: flex;
-  margin-top: 5%;
-  background-color: #f4f4f4;
+@media (max-width: 599px) {
+  .title {
+    text-align: center;
+  }
+  .location {
+    display: block;
+    margin-top: 5%;
+    background-color: #f4f4f4;
+  }
+  .image {
+    width: 75vw;
+    margin: 2vh 10vw 2vh 10vw;
+  }
+  .name {
+    text-align: center;
+    font-size: 3.5vw;
+    border-bottom: 0.07em solid gray;
+    margin: 0 3vw 0 3vw;
+  }
+  .description {
+    text-align: center;
+    font-size: 3vw;
+    padding: 0 5% 5% 5%;
+  }
 }
-.image {
-  width: 30vw;
-  padding-left: 2%;
-}
-.grid {
-  width: 60vw;
-  padding-left: 4%;
-}
-.name {
-  text-align: center;
-  font-size: 2.5vw;
-  border-bottom: 0.07em solid gray;
-}
-.description {
-  text-align: center;
-  font-size: 2vw;
-}
+
 #choices {
   display: flex;
   justify-content: space-around;
   margin: 0% 10% 0% 10%;
   border-bottom: 0.07em solid black;
 }
+
 .options {
   font-size: 3vw;
 }
 .options:hover {
   text-decoration: underline;
 }
+
 #body {
   margin-top: 10%;
   margin-bottom: 5%;
